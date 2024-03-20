@@ -16,7 +16,7 @@ jobs:
       platform: aws
       region: us-east-1
       account: 1234567890
-      
+
       username: ${{secrets.USERNAME}}
       password: ${{secrets.PASSWORD}}
 
@@ -36,11 +36,12 @@ jobs:
           echo "This is the value of username: ${{env.username}}"
           echo "This is the value of password: ${{env.password}}"
 
+          echo "Project version: ${{vars.PROJECT_VERSION}}"
+
       - name: "Show values only if user is auth"
         if: ${{ env.username != '' && env.password != ''}}
         run: |
           echo "User and password exist."
-
 
       - name: "Show default variables"
         run: |
